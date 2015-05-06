@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <EditText
+        android:id="@+id/txt_beacon"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="10dp"
+        android:ems="3"
+        android:inputType="number"
+        />
+
+
+    <LinearLayout
+        android:layout_toRightOf="@id/txt_beacon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_in"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@id/txt_beacon"
+                android:text="IN"/>
+
+            <Button
+                android:id="@+id/btn_out"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@id/btn_in"
+                android:text="OUT"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_enterRegion"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="ENTER REG."/>
+
+            <Button
+                android:id="@+id/btn_leaveRegion"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@id/btn_enterRegion"
+                android:text="LEAVE REG."
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

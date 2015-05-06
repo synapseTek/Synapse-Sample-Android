@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bkg"
+    android:orientation="vertical">
+
+
+
+    <View
+        android:id="@+id/spacer"
+        android:layout_width="fill_parent"
+        android:layout_height="18dp"
+        android:background="@color/main_bkg"></View>
+
+
+    <!-- Parte scrollabile -->
+
+    <ScrollView
+        android:layout_below="@+id/spacer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="30dp"
+            android:orientation="vertical">
+
+
+            <!-- upper section -->
+            <RelativeLayout
+                android:id="@+id/upper_section"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/imgProgress"
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageButton
+                    style="?android:attr/borderlessButtonStyle"
+                    android:id="@+id/gallery_prev"
+                    android:layout_width="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/btn_previmg_states"
+                    android:scaleType="centerInside"
+                    android:layout_height="wrap_content" />
+
+                <ImageButton
+                    style="?android:attr/borderlessButtonStyle"
+                    android:id="@+id/gallery_next"
+                    android:layout_width="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/btn_nextimg_states"
+                    android:scaleType="centerInside"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+            <!-- end upper section -->
+
+
+            <!-- title bar -->
+            <RelativeLayout
+                android:id="@+id/title_bar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/upper_section"
+                android:background="@color/dark_table_row">
+
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="69dp"
+                    android:layout_height="53dp"
+                    android:scaleType="centerCrop"
+                    android:layout_centerVertical="true"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:src="@drawable/btn_back_states"/>
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    style="@style/text_big_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="69dp"
+                    android:paddingBottom="13dp"
+                    android:paddingTop="13dp"
+                    android:text="Title"
+                    />
+            </RelativeLayout>
+            <!-- end title bar -->
+
+
+            <WebView
+                android:id="@+id/contenuto"
+                style="@style/text_mid_size"
+                android:layout_marginLeft="69dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/title_bar"
+                android:layout_centerVertical="true"
+                android:textColor="@android:color/white"
+                android:background="@android:color/transparent" />
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/btn_youtube"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/contenuto"
+                android:padding="8dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="69dp"
+                android:background="@drawable/yellow_states">
+
+                <TextView
+                    android:id="@+id/youtube_text"
+                    android:textColor="@color/mindtek_blue"
+                    style="@style/text_big_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textAllCaps="true"
+                    android:text="@string/btn_youtube"
+                    />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/youtube_text"
+                    android:src="@drawable/btn_youtube_states"/>
+            </RelativeLayout>
+
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/survey"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_youtube"
+                android:layout_marginLeft="69dp"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/survey_title"
+                    style="@style/text_big_size"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@android:color/white"
+                    android:text="@string/btn_youtube"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/answers"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_below="@id/survey_title"
+                    android:gravity="start"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"></RadioGroup>
+
+
+                <Button
+                    android:id="@+id/btn_answer"
+                    style="@style/text_big_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/yellow_states"
+                    android:textAllCaps="true"
+                    android:text="@string/btn_answer"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:layout_gravity="right"
+                    android:textColor="@color/mindtek_blue"
+                    android:layout_below="@id/answers"
+                    />
+
+            </RelativeLayout>
+
+
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

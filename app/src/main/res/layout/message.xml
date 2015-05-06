@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_alignParentBottom="true"
+    android:id="@+id/background"
+    android:background="@color/notification_blue"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <View
+        android:id="@+id/upper_border"
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+        android:background="@color/notification_blue_border"></View>
+
+
+    <RelativeLayout
+        android:layout_below="@id/upper_border"
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true">
+
+
+
+        <RelativeLayout
+            android:id="@+id/cornice"
+            android:layout_width="80dp"
+            android:layout_height="80dp">
+
+            <ImageView
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_margin="4dp"
+                android:id="@+id/img"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:scaleType="centerCrop"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+
+            android:layout_toRightOf="@id/cornice"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+
+            <RelativeLayout
+                android:id="@+id/text_container"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    style="@style/text_small_size"
+                    android:id="@+id/title"
+                    android:layout_width="fill_parent"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"></TextView>
+
+                <TextView
+                    style="@style/text_small_size"
+                    android:id="@+id/txt"
+                    android:layout_below="@id/title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"></TextView>
+
+            </RelativeLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_below="@id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+
+        <RelativeLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/btn_close"
+                android:layout_centerHorizontal="true"
+                style="@style/text_verybig_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/transparent_states"
+                android:textAllCaps="true"
+                android:text="@string/btn_close"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="35dp"
+                android:layout_weight="1"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+
+            <Button
+                android:id="@+id/btn_leggi"
+                android:layout_centerHorizontal="true"
+                style="@style/text_verybig_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/yellow_states"
+                android:textAllCaps="true"
+                android:text="@string/btn_read"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="35dp"
+                android:textColor="@color/main_bkg"
+                android:layout_weight="1"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <View
+        android:layout_below="@id/buttons"
+        android:id="@+id/lower_border"
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+        android:background="@color/notification_blue_border"></View>
+
+
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#ffBFD62F</color>
+    <color name="secondary">#ff8E4B9C</color>
+
+    <color name="main_bkg">#ff094152</color>
+    <color name="dark_table_row">#ff037ba0</color>
+    <color name="light_table_row">#ff129ccd</color>
+    <color name="notification_red_border">#ffb61b1b</color>
+    <color name="notification_blue_border">#ff712980</color>
+    <color name="notification_blue">#ff8E4B9C</color>
+    <color name="notification_red">#ffb61b1b</color>
+    <color name="mindtek_blue">#ff129ccd</color>
+    <color name="transparent_blue">#55129ccd</color>
+    <color name="transparent_white">#ccE6E6E6</color>
+    <color name="pressed_list_item">#ff38baef</color>
+    <color name="text_area_bkg">#ff7f96A2</color>
+    <color name="grey_divider">#ff666666</color>
+    <color name="almost_black">#ff333333</color>
+</resources>

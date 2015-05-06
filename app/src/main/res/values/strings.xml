@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">SynapseSample</string>
+    <string name="push_sender_id">609137678449</string>
+    <string name="client_id">fusionsample123456789</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="btn_read">open</string>
+    <string name="btn_close">ignore</string>
+    <string name="turn_on">turn on</string>
+
+    <string name="txt_risposta">Answer text</string>
+
+
+    <!-- detail -->
+    <string name="btn_youtube">Open video</string>
+    <string name="btn_answer">Answer</string>
+    <string name="no_video">No internet connection</string>
+
+    <!-- actions -->
+    <string name="do_nothing">do_nothing</string>
+    <string name="login_form">login_form</string>
+    <string name="update_config">update</string>
+    <string name="react_to_beacon">react_to_beacon</string>
+    <string name="bluetooth_settings">bluetooth_settings</string>
+    <string name="internet_settings">internet_settings</string>
+
+    <!-- bluetooth -->
+    <string name="no_ble_title">No Bluetooth LE</string>
+    <string name="no_ble_message">It will be impossibile to detect beacons</string>
+    <string name="ble_off_title">Turn on your Bluetooth</string>
+    <string name="ble_off_message">For detecting beacons</string>
+
+    <!-- internet -->
+    <string name="internet_off_title">No internet connection</string>
+    <string name="internet_off_message">Some contents might be unavailable</string>
+
+    <!-- config -->
+    <string name="no_config_title">No configuration available</string>
+    <string name="no_config_message">please retry</string>
+    <string name="update_fail_title">Unable to update configuration</string>
+    <string name="update_fail_message">Your config might be old, please retry</string>
+
+    <!-- surveys -->
+    <string name="survey_fail">An error occoured while sending the answer, please retry</string>
+    <string name="survey_ok">Answer sent</string>
+    <string name="answer">Answer</string>
+    <string name="missing_answers">You need to answer to every question</string>
+    <string name="missing_fields">Please compile every field</string>
+    <string name="already_answered">You already send an answer to this survey</string>
+
+    <!-- credits -->
+    <string name="credits">Powered by MindTek</string>
+    <string name="credits_link">http://www.mindtek.it/</string>
+
+</resources>

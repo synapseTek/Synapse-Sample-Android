@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="120dp"
+    android:background="@drawable/main_bkg_states">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="2dp"
+        android:id="@+id/background">
+
+
+        <LinearLayout
+            android:id="@+id/f"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical" >
+
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="90dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/checkbox_off_background_white"
+                    />
+
+            <TextView
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/check"
+                android:id="@+id/txt_label"
+                style="@style/text_big_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines = "3"
+                android:ellipsize="end"
+                android:paddingBottom="4dip"
+                android:paddingLeft="7dip"
+                android:paddingRight="7dip"
+                android:paddingTop="0dip"
+                android:text="test question"
+                android:layout_gravity="left"
+                android:textColor="@android:color/white" />
+
+
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
