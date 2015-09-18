@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
-import mindtek.common.ui.ImageDownloader;
+import mindtek.common.ui.images.ImageDownloader;
 import mindtek.it.synapsesample.R;
 
 

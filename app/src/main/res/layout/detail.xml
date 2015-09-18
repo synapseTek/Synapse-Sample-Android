@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_bkg"
+    android:background="@color/notification_blue_border"
     android:orientation="vertical">
 
 
@@ -11,7 +11,7 @@
         android:id="@+id/spacer"
         android:layout_width="fill_parent"
         android:layout_height="18dp"
-        android:background="@color/main_bkg"></View>
+        android:background="@color/notification_blue_border"></View>
 
 
     <!-- Parte scrollabile -->
@@ -76,7 +76,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/upper_section"
-                android:background="@color/dark_table_row">
+                android:background="@color/notification_blue">
 
                 <ImageButton
                     android:id="@+id/btn_back"
@@ -132,7 +132,7 @@
 
                 <TextView
                     android:id="@+id/youtube_text"
-                    android:textColor="@color/mindtek_blue"
+                    android:textColor="@color/notification_blue"
                     style="@style/text_big_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -197,7 +197,7 @@
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_gravity="right"
-                    android:textColor="@color/mindtek_blue"
+                    android:textColor="@color/notification_blue"
                     android:layout_below="@id/answers"
                     />
 

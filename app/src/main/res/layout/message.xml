@@ -140,7 +140,7 @@
                 android:paddingBottom="8dp"
                 android:paddingLeft="35dp"
                 android:paddingRight="35dp"
-                android:textColor="@color/main_bkg"
+                android:textColor="@color/notification_blue_border"
                 android:layout_weight="1"
                 />
         </RelativeLayout>

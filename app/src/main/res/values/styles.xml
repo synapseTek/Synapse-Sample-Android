@@ -15,6 +15,9 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:colorPrimary">@color/notification_blue</item>
+        <item name="android:colorPrimaryDark">@color/notification_blue_border</item>
+        <item name="android:colorAccent">@color/primary</item>
     </style>
 
 

@@ -16,10 +16,12 @@ import android.view.inputmethod.InputMethodManager;
 import java.util.List;
 
 import mindtek.common.ui.SystemIntents;
+import mindtek.common.ui.UToast;
 import mindtek.it.synapsesample.data.MessageData;
 import mindtek.it.synapsesample.fragments.DetailFragment;
 import mindtek.it.synapsesample.fragments.Message;
 import mindtek.it.synapsesample.fragments.MessageObserver;
+import mindtek.it.synapsesample.fragments.Quiz;
 import mindtek.it.synapsesample.fragments.SurveyFragment;
 import mindtek.synapse.communication.OnUpdateListener;
 import mindtek.synapse.data.Action;
@@ -39,6 +41,7 @@ public class MainActivity extends FragmentActivity implements SynapseManagerList
     private boolean btOffWarning = false;
     private boolean connectionOffWarning = false;
     private SystemIntents systemRequests;
+
 
 
     @Override
@@ -233,6 +236,12 @@ public class MainActivity extends FragmentActivity implements SynapseManagerList
                 newMessage.close();
             if (getFragmentManager().findFragmentByTag("custom_survey")==null)
                 openSurvey(action);
+        } else if(action.getType().equals("quiz")) {
+            if(newMessage!=null)
+                newMessage.close();
+            if(getFragmentManager().findFragmentByTag("quiz")==null)
+                openQuiz(action);
+
         }
     }
 
@@ -252,16 +261,33 @@ public class MainActivity extends FragmentActivity implements SynapseManagerList
 
 
     public void openSurvey(Action action) {
+        if(!MyApp.getSynapseManager().isSurveyAnswered(action.getSurveyplusID())) {
+            SurveyFragment frag = new SurveyFragment();
+            Bundle args = new Bundle();
+            args.putSerializable("action", action);
+            frag.setArguments(args);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+            transaction.replace(R.id.bkg, frag, "survey");
+            transaction.addToBackStack("survey");
+            transaction.commit();
+        } else
+            UToast.show(this, R.string.survey_already_answered);
+    }
 
-        SurveyFragment frag = new SurveyFragment();
-        Bundle args = new Bundle();
-        args.putSerializable("action", action);
-        frag.setArguments(args);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
-        transaction.replace(R.id.bkg, frag, "survey");
-        transaction.addToBackStack("survey");
-        transaction.commit();
+    public void openQuiz(Action action) {
+        if(!MyApp.getSynapseManager().isQuizAnswered(action.getQuizID())) {
+            Quiz frag = new Quiz();
+            Bundle args = new Bundle();
+            args.putSerializable("action", action);
+            frag.setArguments(args);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.pop_enter, R.anim.pop_exit);
+            transaction.replace(R.id.bkg, frag, "quiz");
+            transaction.addToBackStack("quiz");
+            transaction.commit();
+        } else
+            UToast.show(this, R.string.quiz_already_answered);
     }
 
 

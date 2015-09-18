@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.Vector;
 
-import mindtek.common.ui.ImageDownloader;
+import mindtek.common.ui.images.ImageDownloader;
 import mindtek.it.synapsesample.R;
 import mindtek.it.synapsesample.data.MessageData;
 
@@ -83,7 +83,7 @@ public class Message extends Fragment {
             if (data.getImgRes()>0)
                 img.setImageDrawable(view.getResources().getDrawable(data.getImgRes()));
             else
-                img.setImageDrawable(view.getResources().getDrawable(R.drawable.ic_launcher));
+                img.setImageDrawable(view.getResources().getDrawable(R.mipmap.ic_launcher));
         }
 
 

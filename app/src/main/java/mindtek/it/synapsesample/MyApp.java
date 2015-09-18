@@ -25,7 +25,7 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         messageManager = new MessageManager(this);
-        synapseManager = new SynapseManager(this, getString(R.string.client_id), getString(R.string.push_sender_id));
+        synapseManager = new SynapseManager(this, getString(R.string.client_id), getString(R.string.push_sender_id), R.mipmap.ic_launcher);
     }
 
     @Override

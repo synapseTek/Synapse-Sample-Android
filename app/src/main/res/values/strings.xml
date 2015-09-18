@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">SynapseSample</string>
     <string name="push_sender_id">609137678449</string>
-    <string name="client_id">fusionsample123456789</string>
+    <string name="client_id"></string>
+
+    <!-- TODO insert your app token in the "client_id" string value -->
 
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
@@ -44,11 +46,16 @@
 
     <!-- surveys -->
     <string name="survey_fail">An error occoured while sending the answer, please retry</string>
+    <string name="surveyplus_missing_answers">No available answers</string>
     <string name="survey_ok">Answer sent</string>
     <string name="answer">Answer</string>
     <string name="missing_answers">You need to answer to every question</string>
     <string name="missing_fields">Please compile every field</string>
-    <string name="already_answered">You already send an answer to this survey</string>
+    <string name="survey_already_answered">You already send an answer to this survey</string>
+
+    <!-- quiz -->
+    <string name="quiz_ok">Quiz sent</string>
+    <string name="quiz_already_answered">You already send an answer to this quiz</string>
 
     <!-- credits -->
     <string name="credits">Powered by MindTek</string>
