@@ -3,7 +3,7 @@
     <string name="push_sender_id">609137678449</string>
     <string name="client_id"></string>
 
-    <!-- TODO insert your app token in the "client_id" string value -->
+    <!-- TODO insert your app token in the "client_id" string -->
 
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
@@ -43,6 +43,8 @@
     <string name="no_config_message">please retry</string>
     <string name="update_fail_title">Unable to update configuration</string>
     <string name="update_fail_message">Your config might be old, please retry</string>
+    <string name="no_token_dialog_title">No token found</string>
+    <string name="no_token_dialog_message">Please insert your Synapse app token in the \"client_id\" resource in the \"strings.xml\" file and re-run the project</string>
 
     <!-- surveys -->
     <string name="survey_fail">An error occoured while sending the answer, please retry</string>
@@ -55,7 +57,8 @@
 
     <!-- quiz -->
     <string name="quiz_ok">Quiz sent</string>
-    <string name="quiz_already_answered">You already send an answer to this quiz</string>
+    <string name="quiz_already_answered">Showing stats…</string>
+
 
     <!-- credits -->
     <string name="credits">Powered by MindTek</string>

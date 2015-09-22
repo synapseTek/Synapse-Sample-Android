@@ -1,5 +1,6 @@
 package mindtek.it.synapsesample;
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,18 +17,22 @@ import android.view.inputmethod.InputMethodManager;
 import java.util.List;
 
 import mindtek.common.ui.SystemIntents;
+import mindtek.common.ui.ULog;
 import mindtek.common.ui.UToast;
 import mindtek.it.synapsesample.data.MessageData;
 import mindtek.it.synapsesample.fragments.DetailFragment;
 import mindtek.it.synapsesample.fragments.Message;
 import mindtek.it.synapsesample.fragments.MessageObserver;
 import mindtek.it.synapsesample.fragments.Quiz;
+import mindtek.it.synapsesample.fragments.StatsDialogFragment;
 import mindtek.it.synapsesample.fragments.SurveyFragment;
 import mindtek.synapse.communication.OnUpdateListener;
 import mindtek.synapse.data.Action;
 import mindtek.synapse.SynapseManagerListener;
 import mindtek.synapse.data.RegionMessage;
 import mindtek.synapse.push.SynapsePushListener;
+import mindtek.synapse.quiz.QuizStats;
+import mindtek.synapse.quiz.QuizStatsListener;
 
 /**
  * @author Claudio Suardi - claudio.suardi@mindtek.it
@@ -41,6 +46,7 @@ public class MainActivity extends FragmentActivity implements SynapseManagerList
     private boolean btOffWarning = false;
     private boolean connectionOffWarning = false;
     private SystemIntents systemRequests;
+    private AlertDialog noTokenDialog = null;
 
 
 
@@ -57,7 +63,7 @@ public class MainActivity extends FragmentActivity implements SynapseManagerList
             @Override
             public void onGotPushContent(Action content) {
 
-                if (content==null)
+                if (content == null)
                     Log.d(TAG, "push doesn't have associated content!");
                 else
                     executeAction(content);
@@ -68,17 +74,28 @@ public class MainActivity extends FragmentActivity implements SynapseManagerList
                 Log.e(TAG, errorMsg);
             }
         });
-
+        if(getString(R.string.client_id).equals(""))
+            showDialogNoToken();
         updateAndStartSynapse();
     }
 
-
+    private void showDialogNoToken() {
+        noTokenDialog = new AlertDialog.Builder(this)
+        .setTitle(R.string.no_token_dialog_title)
+                .setMessage(R.string.no_token_dialog_message)
+                .setIcon(R.drawable.synapse)
+                .setCancelable(false)
+                .create();
+                noTokenDialog.show();
+    }
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(messageReceiver);
+        if(noTokenDialog != null)
+            noTokenDialog.dismiss();
     }
 
 
@@ -104,7 +121,7 @@ public class MainActivity extends FragmentActivity implements SynapseManagerList
             @Override
             public void onConfigError(String errorMsg) {
                 Log.e(TAG, "SDK config error, can't start...");
-                Log.e(TAG, errorMsg);
+                Log.e(TAG, "" + errorMsg);
             }
         });
     }
@@ -218,7 +235,7 @@ public class MainActivity extends FragmentActivity implements SynapseManagerList
 
     public void executeAction(Action action) {
 
-        Log.d(TAG, "react to beacon, " + action.getType());
+        ULog.d(TAG, "react to beacon, " + action.getType());
 
         if (action.getType().equals("detail")) {
             if (newMessage!=null)
@@ -286,8 +303,24 @@ public class MainActivity extends FragmentActivity implements SynapseManagerList
             transaction.replace(R.id.bkg, frag, "quiz");
             transaction.addToBackStack("quiz");
             transaction.commit();
-        } else
+        } else {
             UToast.show(this, R.string.quiz_already_answered);
+            MyApp.getSynapseManager().getQuizStats(action.getQuizID(), new QuizStatsListener() {
+                @Override
+                public void onResult(List<QuizStats> stats) {
+                    try {
+                        StatsDialogFragment.newInstance(stats).show(getSupportFragmentManager(), null);
+                    } catch (Exception e) {
+                        ULog.e(TAG, "Changed screen while downloading");
+                    }
+                }
+
+                @Override
+                public void onError(String errorMsg) {
+                    ULog.i(TAG, "error getting quiz stats.. <" + errorMsg + ">");
+                }
+            });
+        }
     }
 
 
@@ -305,7 +338,7 @@ public class MainActivity extends FragmentActivity implements SynapseManagerList
         @Override
         public void onReceive(Context context, Intent intent) {
 
-            Log.d(TAG, "message received");
+           ULog.d(TAG, "message received");
 
             if (findViewById(R.id.notification_area)==null)
                 return;
